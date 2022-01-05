@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="resources/css/styles.css">
+        <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
+        <title>Registration</title>
+    </head>
+    <body>
+        <header>
+            <hgroup>
+                <h1 class="title">Onlineshop Signin</h1>
+            </hgroup>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+                <a href="signin.html">Sign In</a>
+                <a href="sell.html">Sell</a>
+                <a href="search.html">Search</a>
+            </nav>
+        </header>
+
+        <form action="signin" method="post">
+            <fieldset>
+                <legend>Login</legend>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <label for="email">E-Mail:</label>
+                            </th>
+                            <td>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    size="40"
+                                    maxlength="40"
+                                    title="muster@example.com"
+                                    placeholder="Input email"
+                                    pattern=".{6, 40}"
+                                    required="required">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="password">
+                                    Password:
+                                </label>
+                            </th>
+                            <td>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    size="10"
+                                    maxlength="10"
+                                    title="6-10 characters"
+                                    placeholder="Input password"
+                                    pattern=".{6, 10}"
+                                    required="required">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit">
+                                <input type="reset">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+
+        <footer>
+            Copyright
+        </footer>
+    </body>
+</html>
