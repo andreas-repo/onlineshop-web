@@ -3,5 +3,17 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>onlineshop-web</display-name>
+
+    <!-- Example of an individual deployment over web.xml instead of @WebServlet annotation -->
+    <servlet>
+        <servlet-name>IndividualDeploymentHelloWorldServlet</servlet-name>
+        <servlet-class>
+            org.application.demo.IndividualDeploymentHelloWorldServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndividualDeploymentHelloWorldServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 </web-app>
