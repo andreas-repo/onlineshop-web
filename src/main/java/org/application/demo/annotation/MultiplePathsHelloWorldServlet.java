@@ -29,7 +29,9 @@ public class MultiplePathsHelloWorldServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().append("Served at: ").append(req.getContextPath()).append("\n Accessible through multiple paths /path1 and /path2 \n");
+        resp.getWriter().append("Served at: ")
+                .append(req.getContextPath())
+                .append("\n Accessible through multiple paths /path1 and /path2 \n Sets load-on-startup like our web.xml example");
     }
 
     @Override
