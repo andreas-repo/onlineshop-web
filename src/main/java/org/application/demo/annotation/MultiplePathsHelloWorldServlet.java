@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //multiple paths to the servlet
-@WebServlet(urlPatterns = {"/path1", "/path2"})
+//sets load-on-startup like our manual web.xml example
+@WebServlet(urlPatterns = {"/path1", "/path2"}, loadOnStartup = 1)
 public class MultiplePathsHelloWorldServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
