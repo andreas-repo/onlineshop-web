@@ -1,4 +1,4 @@
-package org.application.demo;
+package org.application.demo.mapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

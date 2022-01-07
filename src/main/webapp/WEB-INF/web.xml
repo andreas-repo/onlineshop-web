@@ -5,12 +5,15 @@
 <web-app>
   <display-name>onlineshop-web</display-name>
 
-    <!-- Example of an individual deployment over web.xml instead of @WebServlet annotation -->
+    <!-- Example of an individual deployment over web.xml instead of @WebServlet annotation and mapping to /hello url -->
     <servlet>
         <servlet-name>IndividualDeploymentHelloWorldServlet</servlet-name>
         <servlet-class>
-            org.application.demo.IndividualDeploymentHelloWorldServlet
+            org.application.demo.mapping.IndividualDeploymentHelloWorldServlet
         </servlet-class>
+        <!-- load-on-startup grants that the servlet will be created at startup instead of the standard first call.
+        The number tells in ascending order which servlet should be created first if multiple servlets have the load-on-startup -->
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndividualDeploymentHelloWorldServlet</servlet-name>

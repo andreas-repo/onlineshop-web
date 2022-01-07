@@ -1,4 +1,4 @@
-package org.application.demo;
+package org.application.demo.annotation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
