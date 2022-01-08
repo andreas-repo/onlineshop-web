@@ -5,6 +5,7 @@ import org.application.model.Customer;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,10 +30,6 @@ public class SigninServlet extends HttpServlet {
         //set customer as attribute of session
         session.setAttribute("customer", customer);
 
-        final RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.html");
-        //forward back to index.html
-        requestDispatcher.forward(req, resp);
-
         //logging of the accessing ip
         String address = req.getRemoteAddr();
         log("Remote address: " + address);
@@ -40,5 +37,9 @@ public class SigninServlet extends HttpServlet {
         log("Stated data:");
         log("email: " + email);
         log("password: " + password);
+
+        final RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.html");
+        //forward back to index.html
+        requestDispatcher.forward(req, resp);
     }
 }

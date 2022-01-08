@@ -2,8 +2,10 @@ package org.application.servlets;
 
 import org.application.model.Customer;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,22 +49,32 @@ public class RegisterServlet extends HttpServlet {
         //set the header content type
         resp.setContentType("text/html; charset=UTF-8");
 
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<br>Your stated data:");
-        out.println("<br>Email: " + email);
-        out.println("<br>Password: " + password);
-        out.println("</body>");
-        out.println("</html>");
+        //create cookie with customer email address
+        final Cookie customer_email_email = new Cookie("email", email);
+        //add cookie to response
+        resp.addCookie(customer_email_email);
+        //create cookie with customer password
+        final Cookie customer_password_cookie = new Cookie("password", password);
+        //add cookie to request
+        resp.addCookie(customer_password_cookie);
 
-        //create customer object
-        Customer customer = new Customer(email, password);
-        //save userdata until session is closed
-        session.setAttribute("customer", customer);
-
+        //create a dispatcher
+        final RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
+        //forward via dispatcher
+        dispatcher.forward(req, resp);
 
         //set status code of request, this is set last to be sure the correct/full data has been received
         resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+    }
+
+    private static String beginningHtml() {
+        return new String("<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<body>\n");
+    }
+
+    private static String endHtml() {
+        return new String("</body>\n" +
+                "</html>");
     }
 }
