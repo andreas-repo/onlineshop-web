@@ -15,8 +15,22 @@
         The number tells in ascending order which servlet should be created first if multiple servlets have the load-on-startup -->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+    <servlet>
+        <servlet-name>JdbcServlet</servlet-name>
+        <servlet-class>org.application.servlets.JdbcServlet</servlet-class>
+        <init-param>
+            <param-name>jdbc_properties</param-name>
+            <param-value>/WEB-INF/jdbc.properties</param-value>
+        </init-param>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>IndividualDeploymentHelloWorldServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JdbcServlet</servlet-name>
+        <url-pattern>/db_settings</url-pattern>
     </servlet-mapping>
 </web-app>
