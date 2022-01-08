@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import static org.application.helper.HtmlTemplate.beginningHtml;
+import static org.application.helper.HtmlTemplate.endHtml;
+
 @WebServlet("/signin")
 public class SigninServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -70,16 +73,5 @@ public class SigninServlet extends HttpServlet {
             out.println("<h1>User is not valid!</h1>");
         }
         out.println(endHtml());
-    }
-
-    private static String beginningHtml() {
-        return new String("<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "<body>\n");
-    }
-
-    private static String endHtml() {
-        return new String("</body>\n" +
-                "</html>");
     }
 }

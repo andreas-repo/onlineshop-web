@@ -66,15 +66,4 @@ public class RegisterServlet extends HttpServlet {
         //set status code of request, this is set last to be sure the correct/full data has been received
         resp.setStatus(HttpServletResponse.SC_ACCEPTED);
     }
-
-    private static String beginningHtml() {
-        return new String("<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "<body>\n");
-    }
-
-    private static String endHtml() {
-        return new String("</body>\n" +
-                "</html>");
-    }
 }
