@@ -1,10 +1,12 @@
 package org.application.servlets;
 
+import org.application.listener.PhotoReadListener;
 import org.application.model.Customer;
 import org.application.service.PhotoService;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +36,7 @@ public class SellServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         final String title = req.getParameter("title");
         final String description = req.getParameter("description");
         final String price = req.getParameter("price");
@@ -41,11 +44,11 @@ public class SellServlet extends HttpServlet {
         final Part part = req.getPart("photo");
 
         //get input stream via part
-        InputStream is = part.getInputStream();
+        //InputStream is = part.getInputStream();
         //get file name of submitted photo to use as path
-        String path = "C:\\Users\\andre\\Development\\jarkata-ee-examples\\onlineshop-web\\src\\main\\webapp\\resources\\tmp\\" + part.getSubmittedFileName();
-        File file = new File(path);
-        OutputStream os = new FileOutputStream(file);
+        //String path = "C:\\Users\\andre\\Development\\jarkata-ee-examples\\onlineshop-web\\src\\main\\webapp\\resources\\tmp\\" + part.getSubmittedFileName();
+        //File file = new File(path);
+        //OutputStream os = new FileOutputStream(file);
 
         resp.setContentType("text/html; charset=UTF-8");
 
@@ -73,11 +76,15 @@ public class SellServlet extends HttpServlet {
         out.println("<br>Picture: " + price);
         out.println("<br>Picture: " + part.getSubmittedFileName());
 
-        out.println("<br>Picture has been loaded to " + file.getAbsolutePath());
+        //out.println("<br>Picture has been loaded to " + file.getAbsolutePath());
 
         out.println(endHtml());
 
         final AsyncContext asyncContext = req.startAsync();
-        asyncContext.start(new PhotoService(asyncContext));
+        ServletInputStream in = req.getInputStream();
+        in.setReadListener(new PhotoReadListener(asyncContext));
+
+        //final AsyncContext asyncContext = req.startAsync();
+        //asyncContext.start(new PhotoService(asyncContext));
     }
 }
