@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="resources/css/styles.css">
-    <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
-    <title>Registration</title>
-</head>
-<body>
-    <header>
-        <hgroup>
-            <h1 class="title">Onlineshop Search</h1>
-        </hgroup>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="register.html">Register</a>
-            <a href="signin.html">Sign In</a>
-            <a href="sell.html">Sell</a>
-            <a href="search.html">Search</a>
-        </nav>
-    </header>
+<%@ include file="header.jspf"%>
 
     <article>
         <section>
@@ -53,8 +32,4 @@
         </section>
     </article>
 
-    <footer>
-        Copyright
-    </footer>
-</body>
-</html>
+<%@ include file="footer.jspf"%>

@@ -1,0 +1,22 @@
+<%@ page contentType="text/html;charset=UTF-8" language="Java" pageEncoding="UTF-8" errorPage="errorPage.jsp" %>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Online Shop</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css"/>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1 class="title">Onlineshop</h1>
+        </hgroup>
+
+        <nav>
+            <a href="index.jsp">Home</a>
+            <a href="register.jsp">Register</a>
+            <a href="signin.jsp">Sign In</a>
+            <a href="sell.jsp">Sell</a>
+            <a href="search.jsp">Search</a>
+        </nav>
+    </header>
+
